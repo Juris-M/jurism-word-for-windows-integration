@@ -19,7 +19,7 @@ function xx-retrieve-compiled-plugin () {
 }
 
 function xx-fix-product-id () {
-    sed -si "s/zoteroMacWordIntegration@zotero.org/jurismMacWordIntegration@juris-m.github.io/g" install.rdf
+    sed -si "s/zoteroWinWordIntegration@zotero.org/jurismWinWordIntegration@juris-m.github.io/g" install.rdf
 }
 
 function xx-fix-product-name () {
@@ -27,7 +27,7 @@ function xx-fix-product-name () {
 }
 
 function xx-fix-contributor () {
-    sed -si "/<\/em:developer>/a\        <em:contributor>Frank Bennett</em:contributor>" install.rdf
+    sed -si "/<\/em:developer>/a\    <em:contributor>Frank Bennett</em:contributor>" install.rdf
 }
 
 function xx-install-icon () {
@@ -56,12 +56,19 @@ function xx-add-install-check-module () {
 }
 
 function xx-apply-patch () {
-    patch -p1 < ../additives/macword-install-check.patch >> "${LOG_FILE}" 2<&1
+    patch -p1 < ../additives/word-install-check.patch >> "${LOG_FILE}" 2<&1
 }
 
 
 function xx-make-the-bundle () {
     zip -r "${XPI_FILE}" * >> "${LOG_FILE}"
+}
+
+function xx-fix-uuids () {
+    sed -si "s/f123467c-0e8f-471a-89cb-c5c71f157f80/9478F426-2DDC-11E5-B116-B9D91D5D46B0/g" chrome.manifest
+    sed -si "s/f123467c-0e8f-471a-89cb-c5c71f157f80/9478F426-2DDC-11E5-B116-B9D91D5D46B0/g" components/errorHandler.js
+    sed -si "s/c7a7eec5-f073-4db4-b383-f866f4b96b1c/AB3016FE-2DDC-11E5-9101-C0D91D5D46B0/g" chrome.manifest
+    sed -si "s/c7a7eec5-f073-4db4-b383-f866f4b96b1c/AB3016FE-2DDC-11E5-9101-C0D91D5D46B0/g" components/zoteroWinWordIntegration.js
 }
 
 function build-the-plugin () {
@@ -79,6 +86,7 @@ function build-the-plugin () {
         xx-fix-target-id
         xx-add-update-key
         xx-add-install-check-module
+        xx-fix-uuids
         xx-apply-patch
         xx-make-the-bundle
         cd ..
