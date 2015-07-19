@@ -5,13 +5,13 @@ set -e
 # Release-dance code goes here.
 
 # Constants
-PRODUCT="Juris-M Word for Mac Integration"
+PRODUCT="Juris-M Word for Windows Integration"
 IS_BETA=0
-FORK="jurism-word-for-mac-integration"
+FORK="jurism-word-for-windows-integration"
 BRANCH="master"
-CLIENT="jurism-word-for-mac-integration"
-VERSION_ROOT="3.5.11m"
-COMPILED_PLUGIN_URL="https://download.zotero.org/integration/Zotero-MacWord-Plugin-3.5.11.xpi"
+CLIENT="jurism-word-for-windows-integration"
+VERSION_ROOT="3.1.20m"
+COMPILED_PLUGIN_URL="https://download.zotero.org/integration/Zotero-WinWord-Plugin-3.1.20.xpi"
 
 # Error handlers
 . sh-lib/errors.sh
