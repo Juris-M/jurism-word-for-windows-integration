@@ -51,7 +51,7 @@ function xx-fix-homepage-url () {
 }
 
 function xx-fix-icon-url () {
-    sed -si "s/<em:iconURL>.*<\/em:iconURL>/<em:iconURL>chrome:\/\/zotero-word-for-windows-integration\/content\/zotero.png<\/em:iconURL>/" install.rdf
+    sed -si "s/<em:iconURL>.*<\/em:iconURL>/<em:iconURL>chrome:\/\/zotero-winword-integration\/content\/zotero.png<\/em:iconURL>/" install.rdf
 }
 
 function xx-fix-target-id () {
