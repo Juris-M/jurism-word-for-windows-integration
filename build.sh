@@ -6,12 +6,13 @@ set -e
 
 # Constants
 PRODUCT="Juris-M Word for Windows Integration"
-IS_BETA=0
+IS_BETA="false"
 FORK="jurism-word-for-windows-integration"
 BRANCH="master"
 CLIENT="jurism-word-for-windows-integration"
-VERSION_ROOT="3.1.20m"
-COMPILED_PLUGIN_URL="https://download.zotero.org/integration/Zotero-WinWord-Plugin-3.1.20.xpi"
+VERSION_ROOT="3.5.2m"
+COMPILED_PLUGIN_URL="https://download.zotero.org/integration/Zotero-WinWord-Plugin-3.5.2.xpi"
+#COMPILED_PLUGIN_URL="https://download.zotero.org/integration/Zotero-WinWord-Plugin-3.1.20.xpi"
 
 # Error handlers
 . sh-lib/errors.sh

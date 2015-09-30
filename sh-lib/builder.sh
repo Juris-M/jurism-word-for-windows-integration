@@ -34,7 +34,7 @@ function xx-fix-product-name () {
     sed -si "/Copyright.*Zotero/n;/Zotero *=/n;s/Zotero\( \|\"\|$\)/Juris-M\\1/g" install.rdf
     sed -si "/Copyright.*Zotero/n;/Zotero *=/n;s/Zotero\( \|\"\|$\)/Juris-M\\1/g" resource/installer.jsm
     sed -si "/Copyright.*Zotero/n;/Zotero *=/n;s/Zotero\( \|\"\|$\)/Juris-M\\1/g" components/zoteroWinWordIntegration.js
-    sed -si "/Copyright.*Zotero/n;/Zotero *=/n;s/Zotero\( \|\"\|$\)/Juris-M\\1/g" components/errorHandler.js
+    #sed -si "/Copyright.*Zotero/n;/Zotero *=/n;s/Zotero\( \|\"\|$\)/Juris-M\\1/g" components/errorHandler.js
 }
 
 function xx-fix-contributor () {
@@ -77,7 +77,7 @@ function xx-make-the-bundle () {
 
 function xx-fix-uuids () {
     sed -si "s/f123467c-0e8f-471a-89cb-c5c71f157f80/9478F426-2DDC-11E5-B116-B9D91D5D46B0/g" chrome.manifest
-    sed -si "s/f123467c-0e8f-471a-89cb-c5c71f157f80/9478F426-2DDC-11E5-B116-B9D91D5D46B0/g" components/errorHandler.js
+#    sed -si "s/f123467c-0e8f-471a-89cb-c5c71f157f80/9478F426-2DDC-11E5-B116-B9D91D5D46B0/g" components/errorHandler.js
     sed -si "s/c7a7eec5-f073-4db4-b383-f866f4b96b1c/AB3016FE-2DDC-11E5-9101-C0D91D5D46B0/g" chrome.manifest
     sed -si "s/c7a7eec5-f073-4db4-b383-f866f4b96b1c/AB3016FE-2DDC-11E5-9101-C0D91D5D46B0/g" components/zoteroWinWordIntegration.js
 }
@@ -98,8 +98,8 @@ function xx-insert-copyright-blocks () {
     sed -si "/END OF INSERT/,/END LICENSE/d" resource/installer_common.jsm
     sed -si "/BEGIN LICENSE/r ../additives/copyright_block.txt" components/zoteroWinWordIntegration.js
     sed -si "/END OF INSERT/,/END LICENSE/d" components/zoteroWinWordIntegration.js
-    sed -si "/BEGIN LICENSE/r ../additives/copyright_block.txt" components/errorHandler.js
-    sed -si "/END OF INSERT/,/END LICENSE/d" components/errorHandler.js
+#    sed -si "/BEGIN LICENSE/r ../additives/copyright_block.txt" components/errorHandler.js
+#    sed -si "/END OF INSERT/,/END LICENSE/d" components/errorHandler.js
 }
 
 function build-the-plugin () {
