@@ -15,6 +15,7 @@ function create-github-release () {
     if [ "$UPLOAD_URL" == "" ]; then
         # Create the release
         DAT=$(printf '{"tag_name": "%s", "name": "%s", "body":"%s", "draft": false, "prerelease": %s}' "$RELEASE_TAG" "$RELEASE_NAME" "$RELEASE_BODY" "$IS_BETA")
+	print "${DAT}"
         UPLOAD_URL=$(curl --fail --silent \
             --user "${DOORKEY}" \
             --data "${DAT}" \
