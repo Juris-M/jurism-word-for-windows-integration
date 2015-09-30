@@ -15,7 +15,7 @@ function create-github-release () {
     if [ "$UPLOAD_URL" == "" ]; then
         # Create the release
         DAT=$(printf '{"tag_name": "%s", "name": "%s", "body":"%s", "draft": false, "prerelease": %s}' "$RELEASE_TAG" "$RELEASE_NAME" "$RELEASE_BODY" "$IS_BETA")
-	print "${DAT}"
+	echo "${DAT}"
         UPLOAD_URL=$(curl --fail --silent \
             --user "${DOORKEY}" \
             --data "${DAT}" \
@@ -27,6 +27,7 @@ function create-github-release () {
 
 function add-xpi-to-github-release () {
     # Upload "asset"
+    echo "${RELEASE_DIR}/${CLIENT}-v${VERSION}.xpi"
     NAME=$(curl --fail --silent --show-error \
         --user "${DOORKEY}" \
         -H "Accept: application/vnd.github.manifold-preview" \
