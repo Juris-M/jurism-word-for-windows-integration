@@ -13,6 +13,7 @@ CLIENT="jurism-word-for-windows-integration"
 VERSION_ROOT="3.5.4m"
 COMPILED_PLUGIN_URL="https://download.zotero.org/integration/Zotero-WinWord-Plugin-3.5.4.xpi"
 #COMPILED_PLUGIN_URL="https://download.zotero.org/integration/Zotero-WinWord-Plugin-3.1.20.xpi"
+SIGNED_STUB="jurism_word_for_windows_integration-"
 
 function xx-make-build-directory () {
     if [ -d "build" ]; then
