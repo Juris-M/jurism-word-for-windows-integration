@@ -26,7 +26,7 @@ function xx-fix-product-ids () {
     sed -si "s/zoteroMacWordIntegration@zotero.org/jurismMacWordIntegration@juris-m.github.io/g" install.rdf
     sed -si "s/zoteroMacWordIntegration@zotero.org/jurismMacWordIntegration@juris-m.github.io/g" resource/installer.jsm
     # Win
-    sed -si "s/zoteroWinWordIntegration@zotero.org/jurismWindWordIntegration@juris-m.github.io/g" install.rdf
+    sed -si "s/zoteroWinWordIntegration@zotero.org/jurismWinWordIntegration@juris-m.github.io/g" install.rdf
     sed -si "s/zoteroWinWordIntegration@zotero.org/jurismWinWordIntegration@juris-m.github.io/g" resource/installer.jsm
 }
 
