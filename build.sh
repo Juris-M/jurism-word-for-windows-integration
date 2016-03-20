@@ -28,6 +28,7 @@ function xx-grab-install-rdf () {
 
 function xx-retrieve-compiled-plugin () {
     trap booboo ERR
+    echo "Fetch Zotero plugin"
     wget -O compiled-plugin.xpi "${COMPILED_PLUGIN_URL}" >> "${LOG_FILE}" 2<&1
     trap - ERR
     unzip compiled-plugin.xpi >> "${LOG_FILE}" 2<&1
