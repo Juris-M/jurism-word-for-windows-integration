@@ -22,17 +22,18 @@ function xx-make-build-directory () {
     mkdir build
 }
 
-function xx-grab-install-rdf () {
-    cp ../install.rdf .
-}
-
 function xx-retrieve-compiled-plugin () {
     trap booboo ERR
     echo "Fetch Zotero plugin"
     wget -O compiled-plugin.xpi "${COMPILED_PLUGIN_URL}" >> "${LOG_FILE}" 2<&1
+    echo "  done"
     trap - ERR
     unzip compiled-plugin.xpi >> "${LOG_FILE}" 2<&1
     rm -f compiled-plugin.xpi
+}
+
+function xx-grab-install-rdf () {
+    cp ../install.rdf .
 }
 
 function xx-fix-product-ids () {
@@ -105,8 +106,8 @@ function xx-insert-copyright-blocks () {
 function build-the-plugin () {
         xx-make-build-directory
         cd build
-        xx-grab-install-rdf
         xx-retrieve-compiled-plugin
+        xx-grab-install-rdf
         set-install-version
         xx-install-icon
         xx-fix-product-ids
