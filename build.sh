@@ -17,13 +17,10 @@ SIGNED_STUB="juris_m_word_for_windows_integration-"
 
 set +e
 gsed --version >/dev/null 2<&1
-ERROR=$?
-echo $ERROR
-if [ $ERROR -gt 0 ]; then
-  echo Defining gsed
-  function gsed () {
-    sed
-  }
+if [ $? -gt 0 ]; then
+  GSED=sed
+else
+  GSED=gsed
 fi
 set -e
 
@@ -50,7 +47,7 @@ function xx-grab-install-rdf () {
 
 function xx-fix-product-ids () {
     # LO
-    gsed -si "s/zoteroOpenOfficeIntegration@zotero.org/jurismOpenOfficeIntegration@juris-m.github.io/g" install.rdf
+    ${GSED} -si "s/zoteroOpenOfficeIntegration@zotero.org/jurismOpenOfficeIntegration@juris-m.github.io/g" install.rdf
     gsed -si "s/zoteroOpenOfficeIntegration@zotero.org/jurismOpenOfficeIntegration@juris-m.github.io/g" resource/installer.jsm
     # Mac
     gsed -si "s/zoteroMacWordIntegration@zotero.org/jurismMacWordIntegration@juris-m.github.io/g" install.rdf
